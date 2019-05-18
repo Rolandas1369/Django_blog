@@ -12,8 +12,8 @@ def post_list(request):
     return render(request, 'blog/post_list.html', {'posts': posts})
 
 def post_new(request):
-    if request.method == "POST":
-        form = PostForm(request.POST)
+    if request.method == "GET":
+        form = PostForm(request.GET)
         if form.is_valid():
             post = form.save(commit=False)
             post.author = request.user
